@@ -38,7 +38,7 @@ class TelegramController extends Controller
     public function getWebhookUpdates()
     {
     	$updates = $this->telegram->getWebhookUpdates();
-    	$response = Response::make($contents, $statusCode);
+    	$response = Response::make($updates, 200);
 		$response->header(array("Content-type: multipart/form-data"));
     	dd($response);
     }
