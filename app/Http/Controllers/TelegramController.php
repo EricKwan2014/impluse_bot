@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Validator;
 use Telegram\Bot\Api;
 use Input;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Response;
 
 class TelegramController extends Controller
 {
@@ -37,6 +38,8 @@ class TelegramController extends Controller
     public function getWebhookUpdates()
     {
     	$updates = $this->telegram->getWebhookUpdates();
-    	dd($updates);
+    	$response = Response::make($contents, $statusCode);
+		$response->header(array("Content-type: multipart/form-data"));
+    	dd($response);
     }
 }
