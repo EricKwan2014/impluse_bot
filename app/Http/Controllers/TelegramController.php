@@ -39,6 +39,6 @@ class TelegramController extends Controller
     public function getWebhookUpdates(Request $request)
     {
     	$updates = $this->telegram->getWebhookUpdates();
-    	return response()->json($request);
+    	return response()->json($updates);
     }
 }
