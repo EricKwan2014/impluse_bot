@@ -7,7 +7,7 @@ use Telegram\Bot\Api;
 use Input;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Response;
-use App\Http\Requests\Request;
+use Illuminate\Support\Facades\Request;
 
 class TelegramController extends Controller
 {
