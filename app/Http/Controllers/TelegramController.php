@@ -39,7 +39,7 @@ class TelegramController extends Controller
     {
     	$updates = $this->telegram->getWebhookUpdates();
     	$response = Response::make($updates, 200);
-		$response->header(array("Content-type: multipart/form-data"));
+		$response->header("Content-type: multipart/form-data");
     	dd($response);
     }
 }
