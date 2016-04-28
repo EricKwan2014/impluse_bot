@@ -58,12 +58,12 @@ class TelegramController extends Controller
     public function getWebhookUpdates(Request $request)
     {
     	$updates = $this->telegram->getWebhookUpdates();
-        $message = collect($updates)->last()->getMessage();
-        $chatId = $message->getChat()->getId();
-        $sender = $message->getFrom()->getUsername();
-        $text = $message->getText();
-        $str = substr($text, 1);
-        $str = strstr($str, '@', true);
+        // $message = collect($updates)->last()->getMessage();
+        // $chatId = $message->getChat()->getId();
+        // $sender = $message->getFrom()->getUsername();
+        // $text = $message->getText();
+        // $str = substr($text, 1);
+        // $str = strstr($str, '@', true);
 
         $response = $this->telegram->sendMessage([
           'chat_id' => '-147748587', 
