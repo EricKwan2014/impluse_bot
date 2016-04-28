@@ -67,7 +67,7 @@ class TelegramController extends Controller
 
         $response = $this->telegram->sendMessage([
           'chat_id' => '-147748587', 
-          'text' => $sender.' said '.$str.' is hehe.'.$updates
+          'text' => 'Testing'
         ]);
         return $response;
     	// return response()->json($updates);
