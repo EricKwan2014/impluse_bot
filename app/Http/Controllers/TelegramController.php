@@ -65,10 +65,15 @@ class TelegramController extends Controller
         $str = substr($text, 1);
         $str = strstr($str, '@', true);
 
-        if($str=='eric' || $str=='oscar' || $str=='silver'){
+        if($str=='oscar' || $str=='silver'){
             $response = $this->telegram->sendMessage([
               'chat_id' => $chatId,
               'text' => $sender.' said '.$str.' is hehe.'
+            ]);
+        }elseif($str=='eric'){
+            $response = $this->telegram->sendMessage([
+              'chat_id' => $chatId,
+              'text' => $sender.' said '.$str.' is free rider.'
             ]);
         }else{
             $response = null;
