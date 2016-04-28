@@ -59,7 +59,7 @@ class TelegramController extends Controller
     {
     	$updates = $this->telegram->getWebhookUpdates();
         // $message = new Message($update->get('message'));
-        if(collect($updates)->last()->getMessage()){
+        if($updates->getMessage()){
             $chatId = 123;
         }else{
             $chatId = 456;
