@@ -19,6 +19,7 @@ Route::group(['middleware' => ['api']], function () {
     //
     Route::post('/getUpdates', 'TelegramController@getUpdates');
     Route::post('/setWebhook', 'TelegramController@setWebhook');
+    Route::post('/removeWebhook', 'TelegramController@removeWebhook');
     Route::post('/getLastResponse', 'TelegramController@getLastResponse');
     Route::get(config('telegram.bot_token').'/webhook', 'TelegramController@getWebhookUpdates');
     Route::post(config('telegram.bot_token').'/webhook', 'TelegramController@getWebhookUpdates');

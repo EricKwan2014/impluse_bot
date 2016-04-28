@@ -8,6 +8,7 @@ use Input;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Request;
+use Telegram\Bot\Objects\Message;
 
 class TelegramController extends Controller
 {
@@ -21,13 +22,31 @@ class TelegramController extends Controller
     public function getUpdates()
     {
         $updates = $this->telegram->getUpdates();
-        dd($updates);
+        $message = collect($updates)->last()->getMessage();
+        $chatId = $message->getChat()->getId();
+        $sender = $message->getFrom()->getUsername();
+        $text = $message->getText();
+        $str = substr($text, 1);
+        $str = strstr($str, '@', true);
+
+        $response = $this->telegram->sendMessage([
+          'chat_id' => $chatId, 
+          'text' => $sender.' said '.$str.' is hehe.'
+        ]);
+        return $response;
+        // dd($updates);
     }
 
     public function setWebhook()
     {
-    	$response = $this->telegram->setWebhook(['url' => URL::to('/'.$this->telegram->getAccessToken().'/webhook')]);
-    	dd($response);
+        $response = $this->telegram->setWebhook(['url' => URL::to('/'.$this->telegram->getAccessToken().'/webhook')]);
+        dd($response);
+    }
+
+    public function removeWebhook()
+    {
+        $response = $this->telegram->removeWebhook();
+        dd($response);
     }
 
     public function getLastResponse()
@@ -39,6 +58,18 @@ class TelegramController extends Controller
     public function getWebhookUpdates(Request $request)
     {
     	$updates = $this->telegram->getWebhookUpdates();
-    	return response()->json($updates);
+        $message = collect($updates)->last()->getMessage();
+        $chatId = $message->getChat()->getId();
+        $sender = $message->getFrom()->getUsername();
+        $text = $message->getText();
+        $str = substr($text, 1);
+        $str = strstr($str, '@', true);
+
+        $response = $this->telegram->sendMessage([
+          'chat_id' => $chatId, 
+          'text' => $sender.' said '.$str.' is hehe.'
+        ]);
+        return $response;
+    	// return response()->json($updates);
     }
 }
