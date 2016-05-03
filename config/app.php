@@ -14,6 +14,7 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
+    'weather_token' => env('WEATHER_TOKEN', 'WEATHER_TOKEN-HERE'),
 
     /*
     |--------------------------------------------------------------------------

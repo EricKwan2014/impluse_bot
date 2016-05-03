@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 // Route::group(['middleware' => ['api']], function () {
     //
+    Route::get('/weather', 'WeatherController@index');
     Route::post('/getUpdates', 'TelegramController@getUpdates');
     Route::post('/setWebhook', 'TelegramController@setWebhook');
     Route::post('/removeWebhook', 'TelegramController@removeWebhook');
