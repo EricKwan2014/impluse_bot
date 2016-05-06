@@ -98,25 +98,25 @@ class TelegramController extends Controller
                   'chat_id' => $chatId,
                   'text' => $str . 'AND' . $seg1
                 ]);
-            if(preg_match('/5/', $str)){
+            if(preg_match('/6/', $str)){
                 sleep(5);
                 $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
-                  'text' => $str . 'AND' . $debug
+                  'text' => $str . 'AND' . $seg1
                 ]);
             }
-            if(preg_match('/10/', $str)){
+            if(preg_match('/12/', $str)){
                 sleep(10);
                 $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
-                  'text' => $str . 'AND' . $debug
+                  'text' => $str . 'AND' . $seg1
                 ]);
             }
-            if(preg_match('/15/', $str)){
+            if(preg_match('/18/', $str)){
                 sleep(15);
                 $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
-                  'text' => $str . 'AND' . $debug
+                  'text' => $str . 'AND' . $seg1
                 ]);
             }
         }
