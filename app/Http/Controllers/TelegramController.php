@@ -87,7 +87,7 @@ class TelegramController extends Controller
         $str = substr($text, 1);
         $debug = strstr($str, '@', true);
 
-        $disasters_feed = Feeds::make('http://www.who.int/feeds/entity/csr/don/zh/rss.xml', true);
+        $disasters_feed = Feeds::make('http://www.who.int/feeds/entity/hac/en/rss.xml', true);
         $disasters_news = $disasters_feed->get_items()[0]->get_description();
 
         $reminder_help = "/remind (用家) (時間) (動作)\n e.g /remind Eric tomorrow_3pm take_drug";
