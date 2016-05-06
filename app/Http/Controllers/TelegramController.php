@@ -92,7 +92,7 @@ class TelegramController extends Controller
 
         $reminder_help = "/remind (用家) (時間) (動作)\n e.g /remind Eric tomorrow_3pm take_drug";
 
-        if(strpos($str, 'debug') != false){
+        if(preg_match('/debug/',$str)){
             $response = $this->telegram->sendMessage([
               'chat_id' => $chatId,
               'text' => $str . 'AND' . $debug
