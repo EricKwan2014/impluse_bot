@@ -144,7 +144,7 @@ class TelegramController extends Controller
             // ]);
             $response = $telegram->sendPhoto([
               'chat_id' => $chatId,
-              'photo' => public_path('ozone.jpg'), 
+              'photo' => base_path('public/ozone.jpg'),
               'caption' => 'Ozone Index Chart'
             ]);
         }
