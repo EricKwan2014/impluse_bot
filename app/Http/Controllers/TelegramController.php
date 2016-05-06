@@ -96,7 +96,7 @@ class TelegramController extends Controller
             $seg1 = strstr($str, ' ', true);
             $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
-                  'text' => $str . 'AND' . $seg1
+                  'text' => $str . 'AND' . explode(' ', $str, 2)
                 ]);
             if(preg_match('/6/', $str)){
                 sleep(6);
