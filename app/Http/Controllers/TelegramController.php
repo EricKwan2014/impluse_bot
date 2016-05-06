@@ -94,26 +94,27 @@ class TelegramController extends Controller
 
         if(preg_match('/remind/',$str)){
             $seg1 = strstr($str, ' ', true);
+            $data   = preg_split('/\s+/', $str);
             $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
                   'text' => $str . 'AND' . $seg1
                 ]);
             if(preg_match('/6/', $str)){
-                sleep(5);
+                sleep(6);
                 $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
                   'text' => $str . 'AND' . $seg1
                 ]);
             }
             if(preg_match('/12/', $str)){
-                sleep(10);
+                sleep(12);
                 $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
                   'text' => $str . 'AND' . $seg1
                 ]);
             }
             if(preg_match('/18/', $str)){
-                sleep(15);
+                sleep(18);
                 $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
                   'text' => $str . 'AND' . $seg1
