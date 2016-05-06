@@ -97,13 +97,13 @@ class TelegramController extends Controller
             $data   = preg_split('/\s+/', $str);
             $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
-                  'text' => $str . 'AND' . $seg1
+                  'text' => $str . 'AND' . $seg1 . 'AND' . $data
                 ]);
             if(preg_match('/6/', $str)){
                 sleep(6);
                 $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
-                  'text' => $str . 'AND' . $seg1
+                  'text' => $str . 'AND' . $seg1 . 'AND' . $data
                 ]);
             }
             if(preg_match('/12/', $str)){
