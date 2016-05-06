@@ -92,17 +92,17 @@ class TelegramController extends Controller
 
         $reminder_help = "/remind (用家) (時間之後) (動作)\n e.g /remind Eric tomorrow_3pm take_drug";
 
-        if($str=='remind')){
+        if(preg_match('/remind/',$str)){
             $seg1 = strstr($str, ' ', true);
             $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
-                  'text' => $sender
+                  'text' => $str . 'AND' . $seg1
                 ]);
             if(preg_match('/6/', $str)){
                 sleep(6);
                 $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
-                  'text' => $sender. 'remind that '
+                  'text' => $str . 'AND' . $seg1
                 ]);
             }
             if(preg_match('/12/', $str)){
