@@ -142,7 +142,7 @@ class TelegramController extends Controller
             //   'chat_id' => $chatId,
             //   'text' => $air_pollution_help
             // ]);
-            $response = $telegram->sendPhoto([
+            $response = $this->telegram->sendPhoto([
               'chat_id' => $chatId,
               'photo' => base_path('public/ozone.jpg'),
               'caption' => 'Ozone Index Chart'
