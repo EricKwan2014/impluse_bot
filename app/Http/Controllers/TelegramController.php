@@ -85,7 +85,7 @@ class TelegramController extends Controller
         $sender = $message->getFrom()->getUsername();
         $text = $message->getText();
         $str = substr($text, 1);
-        $str = strstr($str, '@', true);
+        // $str = strstr($str, '@', true);
 
         $disasters_feed = Feeds::make('http://www.who.int/feeds/entity/hac/en/rss.xml', true);
         $disasters_news = $disasters_feed->get_items()[0]->get_description();
