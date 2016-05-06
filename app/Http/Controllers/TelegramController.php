@@ -90,8 +90,36 @@ class TelegramController extends Controller
         $disasters_feed = Feeds::make('http://www.who.int/feeds/entity/hac/en/rss.xml', true);
         $disasters_news = $disasters_feed->get_items()[0]->get_description();
 
-        $reminder_help = "/remind (用家) (時間) (動作)\n e.g /remind Eric tomorrow_3pm take_drug";
+        $reminder_help = "/remind (用家) (時間之後) (動作)\n e.g /remind Eric tomorrow_3pm take_drug";
 
+        if(preg_match('/remind/',$str)){
+            $seg1 = strstr($str, ' ', true);
+            $response = $this->telegram->sendMessage([
+                  'chat_id' => $chatId,
+                  'text' => $str . 'AND' . $seg1
+                ]);
+            if(preg_match('/5/', $str)){
+                sleep(5);
+                $response = $this->telegram->sendMessage([
+                  'chat_id' => $chatId,
+                  'text' => $str . 'AND' . $debug
+                ]);
+            }
+            if(preg_match('/10/', $str)){
+                sleep(10);
+                $response = $this->telegram->sendMessage([
+                  'chat_id' => $chatId,
+                  'text' => $str . 'AND' . $debug
+                ]);
+            }
+            if(preg_match('/15/', $str)){
+                sleep(15);
+                $response = $this->telegram->sendMessage([
+                  'chat_id' => $chatId,
+                  'text' => $str . 'AND' . $debug
+                ]);
+            }
+        }
         if(preg_match('/debug/',$str)){
             $response = $this->telegram->sendMessage([
               'chat_id' => $chatId,
