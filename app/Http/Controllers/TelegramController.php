@@ -138,10 +138,10 @@ class TelegramController extends Controller
             ]);
         }
         if($str=='air_pollution_help'){
-            $response = $this->telegram->sendMessage([
-              'chat_id' => $chatId,
-              'text' => $air_pollution_help
-            ]);
+            // $response = $this->telegram->sendMessage([
+            //   'chat_id' => $chatId,
+            //   'text' => $air_pollution_help
+            // ]);
             $response = $telegram->sendPhoto([
               'chat_id' => $chatId,
               'photo' => public_path('ozone.jpg'), 
