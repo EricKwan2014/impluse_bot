@@ -142,6 +142,11 @@ class TelegramController extends Controller
               'chat_id' => $chatId,
               'text' => $air_pollution_help
             ]);
+            $response = $telegram->sendPhoto([
+              'chat_id' => $chatId,
+              'photo' => 'http://www.teepr.com/wp-content/uploads/2015/09/%E7%A9%BA%E6%B0%A3%E5%93%81%E8%B3%AA.jpg', 
+              'caption' => 'Ozone Index Chart'
+            ]);
         }
         if($str=='air_pollution'){
             $response = $this->telegram->sendMessage([
