@@ -97,21 +97,21 @@ class TelegramController extends Controller
                 sleep(6);
                 $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
-                  'text' => $sender . 'remind that Silver need to take drug'
+                  'text' => $sender . ' remind that Silver need to take drug'
                 ]);
             }
             if(preg_match('/12/', $str)){
                 sleep(12);
                 $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
-                  'text' => $sender . 'remind that Silver need to take drug'
+                  'text' => $sender . ' remind that Silver need to take drug'
                 ]);
             }
             if(preg_match('/18/', $str)){
                 sleep(18);
                 $response = $this->telegram->sendMessage([
                   'chat_id' => $chatId,
-                  'text' => $sender . 'remind that Silver need to take drug'
+                  'text' => $sender . ' remind that Silver need to take drug'
                 ]);
             }
         }
